@@ -897,7 +897,7 @@ dpkg_Qp() {
 }
 
 dpkg_Qu() {
-  apt-get upgrade --trivial-only "$@"
+  apt-get upgrade --yes --trivial-only "$@"
 }
 
 dpkg_Qs() {
@@ -910,7 +910,7 @@ dpkg_Qs() {
 
 dpkg_Rs() {
   if [[ "$_TOPT" == "" ]]; then
-    apt-get autoremove "$@"
+    apt-get --yes autoremove "$@"
   else
     _not_implemented
   fi
@@ -921,7 +921,7 @@ dpkg_Rn() {
 }
 
 dpkg_Rns() {
-  apt-get --purge autoremove "$@"
+  apt-get --yes --purge autoremove "$@"
 }
 
 dpkg_R() {
@@ -934,13 +934,13 @@ dpkg_Si() {
 
 dpkg_Suy() {
   apt-get update \
-  && apt-get upgrade "$@" \
-  && apt-get dist-upgrade "$@"
+  && apt-get --yes upgrade "$@" \
+  && apt-get --yes dist-upgrade "$@"
 }
 
 dpkg_Su() {
-  apt-get upgrade "$@" \
-  && apt-get dist-upgrade "$@"
+  apt-get --yes upgrade "$@" \
+  && apt-get --yes dist-upgrade "$@"
 }
 
 
@@ -961,7 +961,7 @@ dpkg_Scc() {
 }
 
 dpkg_S() {
-  apt-get install $_TOPT "$@"
+  apt-get --yes install $_TOPT "$@"
 }
 
 dpkg_U() {
